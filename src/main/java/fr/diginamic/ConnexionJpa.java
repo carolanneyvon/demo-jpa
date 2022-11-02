@@ -19,8 +19,8 @@ public class ConnexionJpa {
 
 		transaction.begin();
 
-		Region nvAquitaine = new Region(3, "Auvergne Rhône-Alpes");
-		em.persist(nvAquitaine);
+		Region nvRegion = new Region(3, "Auvergne Rhône-Alpes");
+		em.persist(nvRegion);
 
 		transaction.commit();
 	}
