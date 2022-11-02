@@ -20,14 +20,14 @@ public class Region {
 	public Region() {
 	}
 
-	/**
-	 * @param id
-	 * @param nom
-	 */
-	public Region(Integer id, String nom) {
-		this.id = id;
-		this.nom = nom;
-	}
+//	/**
+//	 * @param id
+//	 * @param nom
+//	 */
+//	public Region(Integer id, String nom) {
+//		this.id = id;
+//		this.nom = nom;
+//	}
 
 
 

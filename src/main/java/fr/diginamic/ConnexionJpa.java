@@ -19,7 +19,11 @@ public class ConnexionJpa {
 
 		transaction.begin();
 
-		Region nvRegion = new Region(3, "Auvergne Rhône-Alpes");
+		// avec le constructeur avec arguments
+		// Region nvRegion = new Region(3, "Auvergne Rhône-Alpes");
+		Region nvRegion = new Region();
+		nvRegion.setId(3);
+		nvRegion.setNom("Auvergne Rhône-Alpes");
 		em.persist(nvRegion);
 
 		transaction.commit();
