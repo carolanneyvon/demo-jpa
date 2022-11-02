@@ -10,19 +10,11 @@
 			<property name="javax.persistence.jdbc.password" value="" />
 			<property name="javax.persistence.jdbc.driver" value="org.mariadb.jdbc.Driver" />
 			<property name="hibernate.show_sql" value="true" />
+			<!-- pour créer directement une table-->
+			<property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
 		</properties>
 	</persistence-unit>
 	
-	<persistence-unit name="bibliotheque" transaction-type="RESOURCE_LOCAL">
-		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-		<properties>
-			<property name="javax.persistence.jdbc.url" value="jdbc:mariadb://localhost/bibliotheque" />
-			<property name="javax.persistence.jdbc.user" value="root" />
-			<property name="javax.persistence.jdbc.password" value="" />
-			<property name="javax.persistence.jdbc.driver" value="org.mariadb.jdbc.Driver" />
-			<property name="hibernate.show_sql" value="true" />
-		</properties>
-	</persistence-unit>
 	
 	
 </persistence>
