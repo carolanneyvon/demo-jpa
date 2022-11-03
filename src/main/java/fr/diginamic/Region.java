@@ -1,9 +1,14 @@
 package fr.diginamic;
 
+import java.util.ArrayList;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import java.util.List;
 
 @Entity
 @Table(name="region")
@@ -15,6 +20,9 @@ public class Region {
 	
 	@Column(name = "NOM", length = 20, nullable = true, unique = false)
 	private String nom;
+	
+	@OneToMany(mappedBy = "region")
+	private List<Ville> villes = new ArrayList<Ville>();
 	
 	/** Constructeur sans argument */
 	public Region() {

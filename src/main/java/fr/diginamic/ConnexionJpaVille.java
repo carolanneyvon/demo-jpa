@@ -2,7 +2,6 @@ package fr.diginamic;
 
 
 import java.util.Calendar;
-import java.util.Locale.Category;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -26,7 +25,7 @@ public class ConnexionJpaVille {
 		ville.setNom("Montpellier");
 		ville.setCodePostal(34000);
 		ville.setDernierRecensement(cal.getTime());
-		ville.setCategorie(Category.GRANDE);
+		ville.setCategorie(Categorie.GRANDE);
 		em.persist(ville);
 
 		transaction.commit();

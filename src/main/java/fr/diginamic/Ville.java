@@ -1,7 +1,6 @@
 package fr.diginamic;
 
 import java.util.Date;
-import java.util.Locale.Category;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,6 +9,8 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -34,7 +35,11 @@ public class Ville {
 	
 	@Column(name = "CATEGORIE", nullable = true, unique = false)
 	@Enumerated(value = EnumType.STRING)
-	private Category categorie;
+	private Categorie categorie;
+	
+	@ManyToOne ()
+	@JoinColumn (name = "REGION_ID")
+	private Region region;
 	
 	/** Constructeur sans argument */
 	public Ville() {
@@ -105,15 +110,29 @@ public class Ville {
 	/** Getter
 	 * @return the categorie
 	 */
-	public Category getCategorie() {
+	public Categorie getCategorie() {
 		return categorie;
 	}
 
 	/** Setter
 	 * @param categorie the categorie to set
 	 */
-	public void setCategorie(Category categorie) {
+	public void setCategorie(Categorie categorie) {
 		this.categorie = categorie;
+	}
+
+	/** Getter
+	 * @return the region
+	 */
+	public Region getRegion() {
+		return region;
+	}
+
+	/** Setter
+	 * @param region the region to set
+	 */
+	public void setRegion(Region region) {
+		this.region = region;
 	}
 
 	

@@ -1,5 +1,7 @@
 package fr.diginamic;
 
+import java.util.Calendar;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -22,9 +24,21 @@ public class ConnexionJpa {
 		// avec le constructeur avec arguments
 		// Region nvRegion = new Region(3, "Auvergne Rhône-Alpes");
 		Region nvRegion = new Region();
-		nvRegion.setId(3);
-		nvRegion.setNom("Auvergne Rhône-Alpes");
+		nvRegion.setId(1);
+		nvRegion.setNom("Occitanie");
 		em.persist(nvRegion);
+		
+		
+		Calendar cal = Calendar.getInstance();
+		cal.set(2015, 5, 18);
+		
+		Ville ville = new Ville();
+		ville.setNom("Montpellier");
+		ville.setCodePostal(34000);
+		ville.setDernierRecensement(cal.getTime());
+		ville.setCategorie(Categorie.GRANDE);
+		ville.setRegion(nvRegion);
+		em.persist(ville);
 
 		transaction.commit();
 	}
