@@ -39,6 +39,13 @@ public class ConnexionJpa {
 		ville.setCategorie(Categorie.GRANDE);
 		ville.setRegion(nvRegion);
 		em.persist(ville);
+		
+		Habitant habitant = new Habitant();
+		habitant.setNom("Dupond");
+		habitant.setPrenom("ManyToMany");
+		em.persist(habitant);
+		
+		ville.getHabitants().add(habitant);
 
 		transaction.commit();
 	}
