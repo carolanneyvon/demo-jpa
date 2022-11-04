@@ -2,6 +2,7 @@ package fr.diginamic;
 
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,6 +22,10 @@ public class Habitant {
 	
 	@Column(name = "PRENOM")
 	private String prenom;
+	
+	// inclus dans table habitant toutes les colonnes table adresse
+	@Embedded
+	private Adresse adresse;
 	
 	/** Constructeur sans argument */
 	public Habitant() {
@@ -48,6 +53,14 @@ public class Habitant {
 
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
+	}
+
+	public Adresse getAdresse() {
+		return adresse;
+	}
+
+	public void setAdresse(Adresse adresse) {
+		this.adresse = adresse;
 	}
 	
 	
