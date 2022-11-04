@@ -19,6 +19,15 @@ public class Livre {
 	@Column(name="AUTEUR", length = 50, nullable = false, unique = false)
 	private String auteur;
 	
+	// va permettre d’extraire un emprunt en fonction son id avec tous les livres associés
+	// si relation maitre exclave avec mappedBy dans Emprunt
+	
+	// @ManyToMany
+	// @JoinTable(name = "COMPO", 
+	//	joinColumns = @JoinColumn(name = "ID_LIV", referencedColumnName = "ID"), 
+	// 	inverseJoinColumns = @JoinColumn(name = "ID_EMP", referencedColumnName = "ID"))
+	// private List<Emprunt> emprunts = new ArrayList<Emprunt>();
+	
 	/** Constructeur sans argument */
 	public Livre() {
 	}

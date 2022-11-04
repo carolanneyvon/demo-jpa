@@ -7,8 +7,6 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -23,7 +21,6 @@ import javax.persistence.TemporalType;
 public class Emprunt {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
 	// un client peut avoir plusieurs emprunts
@@ -38,15 +35,20 @@ public class Emprunt {
 		inverseJoinColumns = @JoinColumn(name = "ID_LIV", referencedColumnName = "ID"))
 	private List<Livre> livres = new ArrayList<Livre>();
 	
+	// si ManyToMany dans la classe Livre mais ici un mappedBy 
+	// relation maitre exclave
+	// @ManyToMany(mappedBy = "emprunts")
+	// private List<Livre> livres = new ArrayList<Livre>;
+	
 	@Column(name = "DATE_DEBUT")
-	@Temporal(value = TemporalType.TIMESTAMP)
+	@Temporal(value = TemporalType.DATE)
 	private Date dateDebut;
 	
 	@Column(name = "DELAI")
 	private Integer delai;
 	
 	@Column(name = "DATE_FIN")
-	@Temporal(value = TemporalType.TIMESTAMP)
+	@Temporal(value = TemporalType.DATE)
 	private Date dateFin;
 
 	public Emprunt() {;

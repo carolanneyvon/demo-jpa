@@ -16,6 +16,11 @@ public class ConnexionJpaBibliotheque {
 			System.out.println("Livre associé à l'id :\n" + livre);
 		}
 		
+		// liste des emprunts associé au livre
+		// for (Emprunt emp: livre.getEmprunts()){
+		// System.out.println(emp);
+		//}
+		
 		// TP 03
 		// extrait un emprunt en fonction son id avec les livres associés
 		Emprunt emprunt = em.find(Emprunt.class, 1);
