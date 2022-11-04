@@ -1,5 +1,8 @@
 package fr.diginamic;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,7 +27,10 @@ public class Client {
 	@Column (name = "PRENOM")
 	private String prenom;
 
-	
+	// un client peut avoir plusieurs emprunts
+	// mappedBy est le nom de l'attribut qui ce trouve dans Emprunt dans le ManyToOne
+	@OneToMany(mappedBy = "client")
+	private List<Emprunt> emprunts = new ArrayList<Emprunt>();
 	
 	public Client() {
 	}
@@ -56,6 +62,14 @@ public class Client {
 
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
+	}
+
+	public List<Emprunt> getEmprunts() {
+		return emprunts;
+	}
+
+	public void setEmprunts(List<Emprunt> emprunts) {
+		this.emprunts = emprunts;
 	}
 	
 	
